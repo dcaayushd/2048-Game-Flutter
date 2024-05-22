@@ -286,15 +286,36 @@ class BoardManager extends StateNotifier<Board> {
   }
 
   //Move the tiles using the arrow keys on the keyboard.
-  bool onKey(RawKeyEvent event) {
+  // bool onKey(KeyEvent event) {
+  //   SwipeDirection? direction;
+  //   if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
+  //     direction = SwipeDirection.right;
+  //   } else if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft)) {
+  //     direction = SwipeDirection.left;
+  //   } else if (event.isKeyPressed(LogicalKeyboardKey.arrowUp)) {
+  //     direction = SwipeDirection.up;
+  //   } else if (event.isKeyPressed(LogicalKeyboardKey.arrowDown)) {
+  //     direction = SwipeDirection.down;
+  //   }
+
+  //   if (direction != null) {
+  //     move(direction);
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  bool onKey(KeyDownEvent event) {
+    LogicalKeyboardKey key = event.logicalKey;
     SwipeDirection? direction;
-    if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
+
+    if (key == LogicalKeyboardKey.arrowRight) {
       direction = SwipeDirection.right;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft)) {
+    } else if (key == LogicalKeyboardKey.arrowLeft) {
       direction = SwipeDirection.left;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowUp)) {
+    } else if (key == LogicalKeyboardKey.arrowUp) {
       direction = SwipeDirection.up;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowDown)) {
+    } else if (key == LogicalKeyboardKey.arrowDown) {
       direction = SwipeDirection.down;
     }
 

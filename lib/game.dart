@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
 
@@ -64,13 +65,22 @@ class Controller extends ConsumerState<Game>
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
+    return KeyboardListener(
       autofocus: true,
       focusNode: FocusNode(),
-      onKey: (RawKeyEvent event) {
-        //Move the tile with the arrows on the keyboard on Desktop
-        if (ref.read(boardManager.notifier).onKey(event)) {
-          _moveController.forward(from: 0.0);
+      // onKeyEvent: (RawKeyEvent event) {
+      //   //Move the tile with the arrows on the keyboard on Desktop
+      //   if (ref.read(boardManager.notifier).onKey(event)) {
+      //     _moveController.forward(from: 0.0);
+      //   }
+      // },
+      onKeyEvent: (event) {
+        if (event is KeyDownEvent) {
+          // LogicalKeyboardKey key = event.logicalKey;
+          // Move the tile with the arrows on the keyboard on Desktop
+          if (ref.read(boardManager.notifier).onKey(event)) {
+            _moveController.forward(from: 0.0);
+          }
         }
       },
       child: SwipeDetector(
@@ -174,3 +184,5 @@ class Controller extends ConsumerState<Game>
     super.dispose();
   }
 }
+
+
