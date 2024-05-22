@@ -12,7 +12,7 @@ This is a Flutter implementation of the classic single-player puzzle game 2048.
 
 ### Demo
 
-You can see a video demonstration of the game in action here: [screenshots/demo.mp4](screenshots/demo.mp4)
+You can see a video demonstration of the game in action here: [Demo/game_demo.mp4](Demo/game_demo.mp4)
 
 ### Getting Started
 
