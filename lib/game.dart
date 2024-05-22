@@ -68,15 +68,8 @@ class Controller extends ConsumerState<Game>
     return KeyboardListener(
       autofocus: true,
       focusNode: FocusNode(),
-      // onKeyEvent: (RawKeyEvent event) {
-      //   //Move the tile with the arrows on the keyboard on Desktop
-      //   if (ref.read(boardManager.notifier).onKey(event)) {
-      //     _moveController.forward(from: 0.0);
-      //   }
-      // },
       onKeyEvent: (event) {
         if (event is KeyDownEvent) {
-          // LogicalKeyboardKey key = event.logicalKey;
           // Move the tile with the arrows on the keyboard on Desktop
           if (ref.read(boardManager.notifier).onKey(event)) {
             _moveController.forward(from: 0.0);
@@ -151,8 +144,9 @@ class Controller extends ConsumerState<Game>
                 children: [
                   const EmptyBoardWidget(),
                   TileBoardWidget(
-                      moveAnimation: _moveAnimation,
-                      scaleAnimation: _scaleAnimation)
+                    moveAnimation: _moveAnimation,
+                    scaleAnimation: _scaleAnimation,
+                  ),
                 ],
               )
             ],
@@ -184,5 +178,3 @@ class Controller extends ConsumerState<Game>
     super.dispose();
   }
 }
-
-
