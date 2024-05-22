@@ -12,14 +12,15 @@ This is a Flutter implementation of the classic single-player puzzle game 2048.
 
 ### Demo
 
-You can see a video demonstration of the game in action here: [Demo/game_demo.mp4](Demo/game_demo.mp4)
+You can see a demonstration of the game in action here:
+![Game Demo](Demo/demo.gif)
 
 ### Getting Started
 
 1. **Clone the repository:**
 
 ```bash
-git clone https://your-repository-url.git
+git clone https://github.com/dcaayushd/2048-Game-Flutter.git
 ```
 
 2.**Install dependencies:**
